@@ -1,0 +1,24 @@
+services:
+  application:
+    build: flask
+    command: python -u apps.py
+    ports:
+      - "5000:5000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./flask:/app
+    depends_on:
+      - db
+  db:
+    image: mongo:latest
+    hostname: mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=users
+    volumes:
+      - digi_card_mongo:/data/db 
+    ports:
+      - "27017:27017" 
+
+volumes:
+  digi_card_mongo:
