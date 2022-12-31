@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form method="post">  
 <style>
     .field {
   margin: 0 0 24px;
@@ -30,13 +29,19 @@
   border-radius: 5px;
   background: var(--white);
 }
-
 </style>    
+<form method="post" enctype="multipart/form-data">  
     <div class="card">   
         {%for i in range(0, len)%}
             <label>{{fields[i]}} : </label>   
             <input type="text" placeholder="Enter {{fields[i]}}" name="{{fields[i]}}" class="field">              
         {%endfor%}   
+
+        <dl>
+          <p>
+              <input type="file" name="img_file" class="form-control" autocomplete="off" required>
+          </p>
+      </dl>
 
         <button type="submit">Submit</button>   
     </div>   
