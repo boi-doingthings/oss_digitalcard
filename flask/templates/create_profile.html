@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="post">  
+<style>
+    .field {
+  margin: 0 0 24px;
+  padding: 11px 16px 9px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--almost-black);
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  display: block;
+  background: var(--almost-white);
+  transition: border-color .15s ease;
+}
+
+.field:focus {
+  border-color: var(--grey-medium);
+  outline: none;
+}
+.card {
+  margin: 0 30px 60px;
+  padding: 20px 40px;
+  width: 460px;
+  box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  background: var(--white);
+}
+
+</style>    
+    <div class="card">   
+        {%for i in range(0, len)%}
+            <label>{{fields[i]}} : </label>   
+            <input type="text" placeholder="Enter {{fields[i]}}" name="{{fields[i]}}" class="field">              
+        {%endfor%}   
+
+        <button type="submit">Submit</button>   
+    </div>   
+</form>     
+
+
+{% endblock %}
