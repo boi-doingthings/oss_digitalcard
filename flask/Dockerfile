@@ -6,3 +6,4 @@ EXPOSE 5000
 ENV FLASK_APP=apps.py
 ENV admin_user=admin_user
 ENV admin_pass=pass123
+ENV pass_hint="A password hint"
